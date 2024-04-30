@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  app:
+    container_name: app
+    build:
+      context: ./.docker/python
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www/
+    tty: true
+    restart: always
+    networks:
+      - carrer
+      
+  mysql:
+    build:
+      context: ./.docker/mysql
+      dockerfile: Dockerfile
+    container_name: mysql
+    volumes:
+      - ./.docker/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: securerootpassword
+      MYSQL_DATABASE: git
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - 3356:3306
+    restart: unless-stopped
+    networks:
+      - carrer
+
+networks:
+  carrer:
+    driver: bridge
