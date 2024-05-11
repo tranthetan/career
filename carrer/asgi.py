@@ -1,5 +1,5 @@
 """
-ASGI config for carrer project.
+ASGI config for career project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

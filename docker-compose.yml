@@ -15,7 +15,7 @@ services:
     tty: true
     restart: always
     networks:
-      - carrer
+      - career
       
   mysql:
     build:
@@ -26,15 +26,15 @@ services:
       - ./.docker/mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: securerootpassword
-      MYSQL_DATABASE: git
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - 3356:3306
     restart: unless-stopped
     networks:
-      - carrer
+      - career
 
 networks:
-  carrer:
+  career:
     driver: bridge

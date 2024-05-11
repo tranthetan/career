@@ -1,5 +1,5 @@
 from django.db import models
-from .hr_register import HRRegister
+from .hr_register import HrRegister
 from .company import Company
 
 class HRCompany(models.Model):
