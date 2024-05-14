@@ -1,10 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class User(models.Model):
-    fullname = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    status = models.BooleanField(default=True)
-    password = models.CharField(max_length=255)
-    role_id = models.CharField(max_length=50)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class User(AbstractUser):
+    is_nomal_user = models.BooleanField(default=True)
+
+    groups = models.ManyToManyField('auth.Group', related_name='custom_user_set')
+    user_permissions = models.ManyToManyField('auth.Permission', related_name='custom_user_set')
