@@ -1,0 +1,87 @@
+@import 'media';
+@import 'color';
+
+.t-container {
+  
+    h2 {
+      margin-bottom: 20px;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+  
+      th {
+        background-color: #f2f2f2;
+      }
+  
+      img {
+        max-width: 100px;
+        height: auto;
+      }
+
+      .product-name {
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+      }
+  
+      .btn-view, .btn-edit, .btn-delete {
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+  
+      .btn-view {
+        background-color: #4CAF50;
+        color: white;
+      }
+  
+      .btn-edit {
+        background-color: #008CBA;
+        color: white;
+      }
+  
+      .btn-delete {
+        background-color: #f44336;
+        color: white;
+      }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .page-numbers {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        li {
+            margin-right: 5px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .page {
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #eee;
+            text-decoration: none;
+            color: #333;
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+}
+
+  

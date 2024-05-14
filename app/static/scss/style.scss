@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import './media';
+@import './color';
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+address,
+code,
+em,
+img,
+small,
+strong,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+embed,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section,
+summary,
+time,
+audio,
+video,
+input,
+button,
+textarea,
+select {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: $cl-primary;
+  }
+
+  &:hover > * {
+    color: $cl-primary;
+  }
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+* {
+    scrollbar-width: auto;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	// border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	// border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+  left bottom,
+  left top,
+  color-stop(0.44, rgb(122,153,217)),
+  color-stop(0.72, rgb(73,125,189)),
+  color-stop(0.86, rgb(28,58,148)));
+}
+
+img {
+  object-fit: cover;
+}
+
+/* *****************************
+ * Container
+ **************************** */
+
+.t-container {
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.button {
+  font-size: 16px;
+  color: #fff;
+  background-color: #dd3f24;
+  padding: 12px 24px;
+  border-radius: 4px;
+  opacity: 1;
+  font-weight: 600;
+  cursor: pointer;
+
+  &-rounded {
+    color: #dd3f24;
+    border: 1px solid #dd3f24;
+    background-color: transparent !important;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.item-center {
+  align-items: center;
+}
+
+.title-left {
+  font-size: 36px;
+  color: #292929;
+  font-weight: 600;
+  margin-bottom: 16px;
+
+  span {
+    color: $cl-primary;
+  }
+}
+
+.color-primary {
+  color: $cl-primary;
+}
+
+.claim-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.claim-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+.mt-2 {
+  margin-top: 8px;
+}
+.mt-3 {
+  margin-top: 12px;
+}
+.mt-4 {
+  margin-top: 16px;
+}
+
+.footer {
+  padding-top: 80px;
+  background-color: #0F1342;
+  // border-top: .5px solid #678FB5;
+  color: #ccc;
+
+  @include mq(smMax) {
+      padding: 40px 0 0 0;
+  }
+
+  &-content {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 80px;
+
+      @include mq(lgMax) {
+          gap: 16px;
+      }
+
+      @include mq(mdMax) {
+          display: block;
+      }
+
+      @include mq(smMax) {
+          padding-bottom: 40px;
+      }
+
+      h4 {
+          margin-bottom: 40px;
+
+          @include mq(mdMax) {
+              margin-top: 32px;
+              margin-bottom: 16px;
+              font-weight: bold;
+          }
+      }
+  }
+
+  &-info {
+      width: 25%;
+
+      @include mq(mdMax) {
+          width: 100%;
+      }
+
+      &__desc {
+          color: #ccc;
+          margin-top: 18px;
+          line-height: 1.5;
+      }
+  }
+
+  &-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+
+      &__text {
+        flex: 1;
+      }
+
+      svg {
+        flex-basis: auto;
+      }
+  }
+
+  &-social__list {
+      display: flex;
+      gap: 16px;
+
+      svg {
+          color: $cl-primary;
+          transition: .3s all;
+
+          &:hover {
+              color: $cl-secondary;
+              transition: .3s all;
+          }
+      }
+  }
+}

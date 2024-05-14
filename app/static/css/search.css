@@ -1,0 +1,129 @@
+/*========================================*/
+/*  break point
+/*========================================*/
+/*========================================*/
+/*  media query Mixin
+/*========================================*/
+.job {
+  background-color: #f5f5f5;
+}
+.job-main-title {
+  font-size: 20px;
+  color: #292929;
+  font-weight: 600;
+}
+.job-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.job-left {
+  grid-column: span 2/span 2;
+}
+.job-item {
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  margin-top: 16px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+.job-item:hover {
+  background-color: rgb(254, 238, 235);
+  border-color: rgb(255, 188, 176);
+  transition: all 0.3s;
+}
+.job-it {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: start;
+  padding: 16px;
+}
+.job-img {
+  display: block;
+  width: 160px;
+  height: 120px;
+}
+.job-img img {
+  padding: 4px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: #fff;
+  border-radius: 4px;
+  max-width: 100%;
+  width: 10rem;
+  height: 7rem;
+}
+.job-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #DD3F24;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin-top: 4px;
+}
+.job-title-company {
+  margin-top: 8px;
+}
+.job-salary {
+  color: #DD3F24;
+  margin-top: 8px;
+}
+.job-address {
+  margin-top: 8px;
+}
+.job-time {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgb(219, 219, 219);
+  text-align: end;
+  font-size: 14px;
+  color: #757575;
+}
+.job-box {
+  border-radius: 4px;
+  border: 1px solid rgb(255, 188, 176);
+}
+.job-box .box-main-title {
+  padding: 8px 16px;
+  background-color: rgb(254, 238, 235);
+  border-bottom: 1px solid rgb(255, 188, 176);
+  font-size: 18px;
+  font-weight: 600;
+}
+.job-box li {
+  border-top: 1px solid rgb(219, 219, 219);
+}
+.job-box li:first {
+  border-top: 0px solid rgb(219, 219, 219);
+}
+.job-box .box-item {
+  padding: 16px;
+  background-color: #fff;
+}
+.job-box .box-it {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.job-box .box-img {
+  width: 88px;
+  background-color: #fff;
+}
+.job-box .box-img a {
+  display: inline-block;
+}
+.job-box .box-img img {
+  width: 88px;
+  height: 66px;
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.job-box .box-title {
+  font-size: 18px;
+  font-weight: 600;
+}/*# sourceMappingURL=search.css.map */

@@ -1,0 +1,637 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+</head>
+<body>
+    <header class="header">
+        <div class="t-container">
+            <div class="nav-menu">
+                <div class="nav-bar__menu">
+                    <a href="#" class="logo-link">
+                        <img class="logo" src="./src/images/logo.png" alt="Logo">
+                    </a>
+                    <ul class="menu-list nav-bar">
+                        <li class="tdropdown">
+                            <a class="menu-items__link" href="product.html">Sản phẩm 
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="ml-[10px] hidden text-xl transition duration-500 group-hover:rotate-180 lg:block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M5.22 8.22a.749.749 0 0 0 0 1.06l6.25 6.25a.749.749 0 0 0 1.06 0l6.25-6.25a.749.749 0 1 0-1.06-1.06L12 13.939 6.28 8.22a.749.749 0 0 0-1.06 0Z"></path></svg>
+                            </a>
+                            <ul class="tdropdown-menu">
+                                <li class="tdropdown-cus">
+                                    <a href="product-detail.html">Phần mềm quản lí</a>
+                                    <ul class="tdropdown-menu1">
+                                        <li>Quản lý 1</li>
+                                        <li>Quản lý 2</li>
+                                        <li>Quản lý 3</li>
+                                        <li>Quản lý 4</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Công ty IT</a></li>
+                        <li><a href="#">Việc làm Hot</a></li>
+                    </ul>
+                </div>
+                <div class="nav-bar__login">
+                    <div class="header-login">
+                        <div class="login">
+                            <a class="phone" href="#">
+                                <span>
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                </span>
+                                <span>098 2693 956</span>
+                            </a>
+                            <a class="button button-rounded" href="login.html">Nhà tuyển dụng</a>
+                            <a class="button" href="login.html">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="section hero-container">
+            <div class="t-container">
+                <div class="hero-content">
+                    <div class="hero-title">
+                        <div class="hero-title__first">Tìm kiếm</div>
+                        <div class="hero-title__text">
+                            Python
+                        </div>
+                    </div>
+                    <form autocomplete="off">
+                        <div class="hero-search">
+                            <div class="hero-search__content flex">
+                                <input type="text" name="" id="" placeholder="Tìm kiếm theo các kỹ năng, vị trí, công việc, ...">
+                                <button class="button">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                    Tìm kiếm
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section recruitment">
+            <div class="t-container">
+                <h2 class="title-left">Nhà tuyển dụng nổi bật</h2>
+                <div class="recruitment-content">
+                    <div class="swiper swiperPartner">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="{% static 'images/mobifone.png' %}" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="{% static 'images/r2.jpg'}" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section job-hot">
+            <div class="t-container">
+                <h2 class="title-left">🔥<span>Công Việc Hot</span> Hôm Nay</h2>
+                <div class="content">
+                    <div class="swiper swiperJob">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-company">Eduvator</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-link">Xem chi tiết</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-company">Eduvator</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-link">Xem chi tiết</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-company">ZOI.TECH SGN</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-title">JIRA & CONFLUENCE ADMINISTRATOR</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-link">Xem chi tiết</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-link">Xem chi tiết</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section company">
+            <div class="t-container">
+                <h2 class="title-left">✨<span>Các Công Ty</span> Phổ Biến</h2>
+                <div class="content">
+                    <div class="swiper swiperCompany">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-company">Eduvator</div>
+                                    </a>
+                                    <div class="color-primary">Thương lượng</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-company">Eduvator</div>
+                                    </a>
+                                    <div class="color-primary">15.000.000 - 22.000.000 VNĐ</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-title">JIRA & CONFLUENCE ADMINISTRATOR</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-company">ZOI.TECH SGN</div>
+                                    </a>
+                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
+                                    </a>
+                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="comment-box">
+                                    <div class="comment-img">
+                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
+                                    </div>
+                                    <a href="#">
+                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
+                                    </a>
+                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section quick-search">
+            <div class="t-container">
+                <h2 class="title-left">Tìm Kiếm Nhanh</h2>
+                <div class="quick-search-content">
+                    <div class="list">
+                        <div class="list-title">Top Việc làm Hot</div>
+                        <div class="items">
+                            <div class="items-box" style="height: 244px; overflow: auto;">
+                                <ul>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-title">Top Việc làm được tìm nhiều</div>
+                        <div class="items">
+                            <div class="items-box" style="height: 244px; overflow: auto;">
+                                <ul>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-title">Top Công ty đang Hot</div>
+                        <div class="items">
+                            <div class="items-box" style="height: 244px; overflow: auto;">
+                                <ul>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                    <li>Việc làm Java</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="t-container">
+            <div class="footer-content">
+                <div class="ft-w-25 footer-info">
+                    <a href="#"><img src="./src/images/Logo.png" alt="Logo"></a>
+                    <div class="footer-info__desc">Dev Pro là một trang tìm kiếm việc làm nhanh nhất hiện nay</div>
+                </div>
+                <div class="ft-w-25 footer-contact">
+                    <h4>LIÊN HỆ</h4>
+                    <div class="footer-list">
+                        <div class="footer-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                <g clip-path="url(#clip0_23_1303)">
+                                    <path d="M12.3333 2C8.46334 2 5.33334 5.13 5.33334 9C5.33334 14.25 12.3333 22 12.3333 22C12.3333 22 19.3333 14.25 19.3333 9C19.3333 5.13 16.2033 2 12.3333 2ZM7.33334 9C7.33334 6.24 9.57334 4 12.3333 4C15.0933 4 17.3333 6.24 17.3333 9C17.3333 11.88 14.4533 16.19 12.3333 18.88C10.2533 16.21 7.33334 11.85 7.33334 9Z" fill="white" />
+                                    <path d="M12.3333 11.5C13.7141 11.5 14.8333 10.3807 14.8333 9C14.8333 7.61929 13.7141 6.5 12.3333 6.5C10.9526 6.5 9.83334 7.61929 9.83334 9C9.83334 10.3807 10.9526 11.5 12.3333 11.5Z" fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1303">
+                                        <rect width="24" height="24" fill="white" transform="translate(0.333344)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="footer-item__text">
+                                Số 350 đường số 8, KDC Him Lam, Tân Hưng, Quận 7
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                <g clip-path="url(#clip0_23_1306)">
+                                    <path d="M16.3333 1H8.33334C6.67334 1 5.33334 2.34 5.33334 4V20C5.33334 21.66 6.67334 23 8.33334 23H16.3333C17.9933 23 19.3333 21.66 19.3333 20V4C19.3333 2.34 17.9933 1 16.3333 1ZM17.3333 18H7.33334V4H17.3333V18ZM14.3333 21H10.3333V20H14.3333V21Z" fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1306">
+                                        <rect width="24" height="24" fill="white" transform="translate(0.333344)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="tel:+(028) 2227 7979">(028) 2227 8888</a>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                <g clip-path="url(#clip0_23_1309)">
+                                    <path d="M22.3333 6C22.3333 4.9 21.4333 4 20.3333 4H4.33334C3.23334 4 2.33334 4.9 2.33334 6V18C2.33334 19.1 3.23334 20 4.33334 20H20.3333C21.4333 20 22.3333 19.1 22.3333 18V6ZM20.3333 6L12.3333 10.99L4.33334 6H20.3333ZM20.3333 18H4.33334V8L12.3333 13L20.3333 8V18Z" fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1309">
+                                        <rect width="24" height="24" fill="white" transform="translate(0.333344)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="mailto:support.eboss@gmail.com">support.devpro@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                <g clip-path="url(#clip0_315_1924)">
+                                    <path d="M13.1667 8.00006H11.6667V14.0001L16.4167 16.8501L17.1667 15.6201L13.1667 13.2501V8.00006ZM18.0037 1.81006L22.6107 5.65506L21.3307 7.19006L16.7207 3.34706L18.0037 1.81006ZM7.32966 1.81006L8.61166 3.34606L4.00366 7.19006L2.72366 5.65406L7.32966 1.81006ZM12.6667 4.00006C7.69666 4.00006 3.66666 8.03006 3.66666 13.0001C3.66666 17.9701 7.69666 22.0001 12.6667 22.0001C17.6367 22.0001 21.6667 17.9701 21.6667 13.0001C21.6667 8.03006 17.6367 4.00006 12.6667 4.00006ZM12.6667 20.0001C8.80666 20.0001 5.66666 16.8601 5.66666 13.0001C5.66666 9.14006 8.80666 6.00006 12.6667 6.00006C16.5267 6.00006 19.6667 9.14006 19.6667 13.0001C19.6667 16.8601 16.5267 20.0001 12.6667 20.0001Z" fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_315_1924">
+                                        <rect width="24" height="24" fill="white" transform="translate(0.666656)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="footer-item__text">
+                                Thời gian làm việc: 8h - 17h
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-w-25 footer-hot">
+                    <h4>NỔI BẬT</h4>
+                    <div class="footer-list">
+                        <div class="footer-item">
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="product.html">Việc làm Hot</a>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="service.html">Top công ty</a>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="contact.html">Liên hệ</a>
+                            </div>
+                        </div>
+                        <div class="footer-item">
+                            <div class="footer-item__text">
+                                <a class="ct-link" href="recruitment.html">Tuyển dụng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-w-25 footer-social">
+                    <h4>KẾT NỐI NGAY</h4>
+                    <div class="footer-social__list">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_23_1324)">
+                                    <path d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z" fill="currentColor" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1324">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_23_1325)">
+                                    <path d="M7.55016 21.7502C16.6045 21.7502 21.5583 14.2469 21.5583 7.74211C21.5583 7.53117 21.5536 7.31554 21.5442 7.1046C22.5079 6.40771 23.3395 5.5445 24 4.55554C23.1025 4.95484 22.1496 5.21563 21.1739 5.32898C22.2013 4.71315 22.9705 3.74572 23.3391 2.60601C22.3726 3.1788 21.3156 3.58286 20.2134 3.80085C19.4708 3.01181 18.489 2.48936 17.4197 2.3143C16.3504 2.13923 15.2532 2.32129 14.2977 2.83234C13.3423 3.34339 12.5818 4.15495 12.1338 5.14156C11.6859 6.12816 11.5754 7.23486 11.8195 8.29054C9.86249 8.19233 7.94794 7.68395 6.19998 6.79834C4.45203 5.91274 2.90969 4.66968 1.67297 3.14976C1.0444 4.23349 0.852057 5.51589 1.13503 6.73634C1.418 7.95678 2.15506 9.02369 3.19641 9.72023C2.41463 9.69541 1.64998 9.48492 0.965625 9.10617V9.1671C0.964925 10.3044 1.3581 11.4068 2.07831 12.287C2.79852 13.1672 3.80132 13.7708 4.91625 13.9952C4.19206 14.1934 3.43198 14.2222 2.69484 14.0796C3.00945 15.0577 3.62157 15.9131 4.44577 16.5266C5.26997 17.14 6.26512 17.4808 7.29234 17.5015C5.54842 18.8714 3.39417 19.6144 1.17656 19.6109C0.783287 19.6103 0.390399 19.5861 0 19.5387C2.25286 20.984 4.87353 21.7516 7.55016 21.7502Z" fill="currentColor" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1325">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 0C5.37188 0 0 5.37188 0 12C0 17.0859 3.16406 21.4266 7.62656 23.175C7.52344 22.2234 7.425 20.7703 7.66875 19.7344C7.88906 18.7969 9.075 13.7719 9.075 13.7719C9.075 13.7719 8.71406 13.0547 8.71406 11.9906C8.71406 10.3219 9.67969 9.075 10.8844 9.075C11.9062 9.075 12.4031 9.84375 12.4031 10.7672C12.4031 11.7984 11.7469 13.3359 11.4094 14.7609C11.1281 15.9562 12.0094 16.9313 13.1859 16.9313C15.3187 16.9313 16.9594 14.6812 16.9594 11.4375C16.9594 8.56406 14.8969 6.55313 11.9484 6.55313C8.53594 6.55313 6.52969 9.1125 6.52969 11.7609C6.52969 12.7922 6.92812 13.8984 7.425 14.4984C7.52344 14.6156 7.5375 14.7234 7.50937 14.8406C7.42031 15.2203 7.21406 16.0359 7.17656 16.2C7.125 16.4203 7.00313 16.4672 6.77344 16.3594C5.27344 15.6609 4.33594 13.4719 4.33594 11.7094C4.33594 7.92188 7.0875 4.44844 12.2625 4.44844C16.425 4.44844 19.6594 7.41563 19.6594 11.3813C19.6594 15.5156 17.0531 18.8438 13.4344 18.8438C12.2203 18.8438 11.0766 18.2109 10.6828 17.4656C10.6828 17.4656 10.0828 19.7578 9.9375 20.3203C9.66562 21.3609 8.93437 22.6688 8.44687 23.4656C9.57187 23.8125 10.7625 24 12 24C18.6281 24 24 18.6281 24 12C24 5.37188 18.6281 0 12 0Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_23_1327)">
+                                    <path d="M10.3635 14.3789L14.5454 12L10.3635 9.62109V14.3789Z" fill="currentColor" />
+                                    <path d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0ZM19.6657 15.8761C19.5753 16.2165 19.397 16.5273 19.1487 16.7772C18.9004 17.027 18.5909 17.2073 18.251 17.2999C17.0034 17.6363 12 17.6362 12 17.6362C12 17.6362 6.99656 17.6363 5.74898 17.2999C5.40912 17.2073 5.09955 17.027 4.85127 16.7772C4.60299 16.5273 4.42472 16.2165 4.3343 15.8761C4.00008 14.6203 4.00008 12 4.00008 12C4.00008 12 4.00008 9.37969 4.3343 8.12391C4.42472 7.78345 4.60299 7.47273 4.85127 7.22285C5.09955 6.97296 5.40912 6.79269 5.74898 6.70008C6.99656 6.36375 12 6.36375 12 6.36375C12 6.36375 17.0034 6.36375 18.251 6.70008C18.5909 6.79269 18.9004 6.97296 19.1487 7.22285C19.397 7.47273 19.5753 7.78345 19.6657 8.12391C19.9999 9.37969 19.9999 12 19.9999 12C19.9999 12 19.9999 14.6203 19.6657 15.8761Z" fill="currentColor" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_23_1327">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+    const swiperPartner = new Swiper('.swiperPartner', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            559: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 20
+            },
+            1200: {
+                slidesPerView: 5,
+                spaceBetween: 20
+            },
+            1360: {
+                slidesPerView: 6,
+                spaceBetween: 20
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    const swiperJob = new Swiper('.swiperJob', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            559: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+            1360: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    const swiperCompany = new Swiper('.swiperCompany', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            559: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+            1360: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+/*========================================*/
+/*  break point
+/*========================================*/
+/*========================================*/
+/*  media query Mixin
+/*========================================*/
+.t-container h2 {
+  margin-bottom: 20px;
+}
+.t-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.t-container table th, .t-container table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.t-container table th {
+  background-color: #f2f2f2;
+}
+.t-container table img {
+  max-width: 100px;
+  height: auto;
+}
+.t-container table .product-name {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.t-container table .btn-view, .t-container table .btn-edit, .t-container table .btn-delete {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.t-container table .btn-view {
+  background-color: #4CAF50;
+  color: white;
+}
+.t-container table .btn-edit {
+  background-color: #008CBA;
+  color: white;
+}
+.t-container table .btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination .page-numbers {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+.pagination .page-numbers li {
+  margin-right: 5px;
+}
+.pagination .page-numbers li:last-child {
+  margin-right: 0;
+}
+.pagination .page-numbers .page {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #eee;
+  text-decoration: none;
+  color: #333;
+}
+.pagination .page-numbers .page:hover {
+  background-color: #ccc;
+}/*# sourceMappingURL=admin-list.css.map */
