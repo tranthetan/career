@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'career.urls'
-
-STATIC_URL = 'static'
 
 TEMPLATES = [
     {
@@ -133,3 +132,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Default key field storage aws-s3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'YOUR_ACCESS_KEY'
+AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_KEY'
+AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'
+AWS_S3_REGION_NAME = 'your-region'

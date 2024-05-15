@@ -18,25 +18,9 @@
             <div class="nav-menu">
                 <div class="nav-bar__menu">
                     <a href="#" class="logo-link">
-                        <img class="logo" src="./src/images/logo.png" alt="Logo">
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
                     </a>
                     <ul class="menu-list nav-bar">
-                        <li class="tdropdown">
-                            <a class="menu-items__link" href="product.html">Sản phẩm 
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="ml-[10px] hidden text-xl transition duration-500 group-hover:rotate-180 lg:block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M5.22 8.22a.749.749 0 0 0 0 1.06l6.25 6.25a.749.749 0 0 0 1.06 0l6.25-6.25a.749.749 0 1 0-1.06-1.06L12 13.939 6.28 8.22a.749.749 0 0 0-1.06 0Z"></path></svg>
-                            </a>
-                            <ul class="tdropdown-menu">
-                                <li class="tdropdown-cus">
-                                    <a href="product-detail.html">Phần mềm quản lí</a>
-                                    <ul class="tdropdown-menu1">
-                                        <li>Quản lý 1</li>
-                                        <li>Quản lý 2</li>
-                                        <li>Quản lý 3</li>
-                                        <li>Quản lý 4</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                         <li><a href="#">Công ty IT</a></li>
                         <li><a href="#">Việc làm Hot</a></li>
                     </ul>
@@ -50,8 +34,8 @@
                                 </span>
                                 <span>098 2693 956</span>
                             </a>
-                            <a class="button button-rounded" href="login.html">Nhà tuyển dụng</a>
-                            <a class="button" href="login.html">Đăng nhập</a>
+                            <a class="button button-rounded" href="/admin">Nhà tuyển dụng</a>
+                            <a class="button" href="/login">Đăng nhập</a>
                         </div>
                     </div>
                 </div>
@@ -371,7 +355,7 @@
         <div class="t-container">
             <div class="footer-content">
                 <div class="ft-w-25 footer-info">
-                    <a href="#"><img src="./src/images/Logo.png" alt="Logo"></a>
+                    <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
                     <div class="footer-info__desc">Dev Pro là một trang tìm kiếm việc làm nhanh nhất hiện nay</div>
                 </div>
                 <div class="ft-w-25 footer-contact">
