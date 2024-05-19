@@ -5,4 +5,5 @@ from .views import index, auth
 urlpatterns = [
     path('', index.index),
     path('login', auth.index),
+    path('filter', auth.index),
 ]
