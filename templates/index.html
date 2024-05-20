@@ -34,7 +34,7 @@
                                 </span>
                                 <span>098 2693 956</span>
                             </a>
-                            <a class="button button-rounded" href="/admin">Nhà tuyển dụng</a>
+                            <a class="button button-rounded" href="/register">Đăng Ký</a>
                             <a class="button" href="/login">Đăng nhập</a>
                         </div>
                     </div>
@@ -48,9 +48,6 @@
                 <div class="hero-content">
                     <div class="hero-title">
                         <div class="hero-title__first">Tìm kiếm</div>
-                        <div class="hero-title__text">
-                            Python
-                        </div>
                     </div>
                     <form autocomplete="off">
                         <div class="hero-search">
@@ -73,41 +70,13 @@
                 <div class="recruitment-content">
                     <div class="swiper swiperPartner">
                         <div class="swiper-wrapper">
+                            {% for company in companies %}
                             <div class="swiper-slide">
                                 <div class="comment-box">
-                                    <img class="comment-img__circle" src="{% static 'images/mobifone.png' %}" alt="Customer 1">
+                                    <img class="comment-img__circle" src="{{ company.thumbnail }}" alt="Customer 1">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="{% static 'images/r2.jpg'}" alt="Customer 1">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>

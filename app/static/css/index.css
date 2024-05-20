@@ -243,12 +243,6 @@
 .hero-container .hero-content .hero-title__first {
   font-weight: 600;
 }
-.hero-container .hero-content .hero-title__text {
-  padding: 8px;
-  background-color: #DD3F24;
-  color: #fff;
-  font-weight: 600;
-}
 .hero-container .hero-content .hero-search {
   padding: 8px;
   position: relative;

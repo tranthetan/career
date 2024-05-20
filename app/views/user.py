@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def regiter(request):
-    return render()
+def register(request):
+    return render(request, 'register.html')
