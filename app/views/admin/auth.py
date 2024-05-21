@@ -32,7 +32,7 @@ def company(request):
 
 def admin_login(request):
     try:
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and not request.user.is_nomal_user:
             return redirect(reverse('admin-index'))
 
         if request.method == "POST":
