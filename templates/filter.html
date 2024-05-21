@@ -22,22 +22,6 @@
                         <img class="logo" src="./src/images/logo.png" alt="Logo">
                     </a>
                     <ul class="menu-list nav-bar">
-                        <li class="tdropdown">
-                            <a class="menu-items__link" href="product.html">Sản phẩm 
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="ml-[10px] hidden text-xl transition duration-500 group-hover:rotate-180 lg:block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M5.22 8.22a.749.749 0 0 0 0 1.06l6.25 6.25a.749.749 0 0 0 1.06 0l6.25-6.25a.749.749 0 1 0-1.06-1.06L12 13.939 6.28 8.22a.749.749 0 0 0-1.06 0Z"></path></svg>
-                            </a>
-                            <ul class="tdropdown-menu">
-                                <li class="tdropdown-cus">
-                                    <a href="product-detail.html">Phần mềm quản lí</a>
-                                    <ul class="tdropdown-menu1">
-                                        <li>Quản lý 1</li>
-                                        <li>Quản lý 2</li>
-                                        <li>Quản lý 3</li>
-                                        <li>Quản lý 4</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                         <li><a href="#">Công ty IT</a></li>
                         <li><a href="#">Việc làm Hot</a></li>
                     </ul>
@@ -66,11 +50,11 @@
                     <div class="hero-title">
                         <div class="hero-title__first">Tìm kiếm</div>
                     </div>
-                    <form autocomplete="off">
+                    <form autocomplete="off" method="GET" action="{% url 'job-search' %}">
                         <div class="hero-search">
                             <div class="hero-search__content flex">
-                                <input type="text" value="Python" placeholder="Tìm kiếm theo các kỹ năng, vị trí, công việc, ...">
-                                <button class="button">
+                                <input type="text" value="{{param}}" placeholder="Tìm kiếm theo các kỹ năng, vị trí, công việc, ...">
+                                <button class="button" type="submit">
                                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                     Tìm kiếm
                                 </button>
@@ -88,69 +72,29 @@
                     <div class="job-left">
                         <div class="job-list">
                             <ul>
+                                {% for job in jobs %}
                                 <li>
                                     <div class="job-item">
                                         <div class="job-it">
                                             <div>
                                                 <a class="job-img" href="#">
-                                                    <img src="./src/images/r2.jpg" alt="Comany">
+                                                    <img src="{{job.company.thumbnail}}" alt="Comany">
                                                 </a>
                                             </div>
                                             <div class="flex-1">
                                                 <h3 class="job-title">
-                                                    <a href="#">DevOps Engineer</a>
+                                                    <a href="#">{{job.title}}</a>
                                                 </h3>
-                                                <div class="job-title-company">OPES Comany</div>
-                                                <div class="job-salary">Thương lượng</div>
-                                                <div class="job-address">Quận 3, TP. HCM</div>
+                                                <div class="job-title-company">{{job.company.website}}</div>
+                                                <div class="job-salary">{{job.salary_range}}</div>
+                                                <div class="job-address">{{job.company.name}}</div>
                                                 <div class="claim-1 mt-2">Go Lang, Python, Ruby, NodeJS, Java: Must have development experience in at least two of these languages.</div>
-                                                <div class="job-time">Đăng 2h trước</div>
+                                                <div class="job-time">{{job.created_at}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="job-item">
-                                        <div class="job-it">
-                                            <div>
-                                                <a class="job-img" href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="job-title">
-                                                    <a href="#">Backend/Frontend Developer (PHP, Python, HTML/CSS, Vuejs)</a>
-                                                </h3>
-                                                <div class="job-title-company">Red Star Technology</div>
-                                                <div class="job-salary">Lên đến 6.000 USD</div>
-                                                <div class="job-address">Quận 3, TP. HCM</div>
-                                                <div class="claim-1 mt-2">Go Lang, Python, Ruby, NodeJS, Java: Must have development experience in at least two of these languages.</div>
-                                                <div class="job-time">Đăng 2h trước</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="job-item">
-                                        <div class="job-it">
-                                            <div>
-                                                <a class="job-img" href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="job-title">
-                                                    <a href="#">Frontend Developer (Vuejs)</a>
-                                                </h3>
-                                                <div class="job-title-company">ABC Company</div>
-                                                <div class="job-salary">Lên đến 1.000 USD</div>
-                                                <div class="job-address">Quận 7, TP. HCM</div>
-                                                <div class="claim-1 mt-2">Go Lang, Python, Ruby, NodeJS, Java: Must have development experience in at least two of these languages.</div>
-                                                <div class="job-time">Đăng 1h trước</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

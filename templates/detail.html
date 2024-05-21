@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python</title>
-    <link href="./src/css/style.css" rel="stylesheet">
-    <link href="./src/feather/feather.css" rel="stylesheet">
-    <link href="./src/css/h-detail.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/feather.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/h-detail.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header class="header">
@@ -14,7 +15,7 @@
             <div class="nav-bar">
                 <div class="nav-bar__menu">
                     <a href="#" class="logo-link">
-                        <img class="logo" src="./src/images/logo.png" alt="Logo">
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
                     </a>
                 </div>
                 <div class="nav-bar__login"></div>
@@ -29,22 +30,22 @@
                     <div class="card-body">
                         <div class="flex">
                             <div class="img">
-                                <img src="./src/images/company.png" alt="">
+                                <img src="{{company.thumbnail}}" alt="">
                             </div>
                             <div class="info">
-                                <h1 class="title">GOOGLE WORKSPACE APPLICATION ENGINEER</h1>
-                                <p class="sub-title">ZOI.TECH SGN</p>
+                                <h1 class="title">{{job.title}}</h1>
+                                <p class="sub-title">{{company.website}}</p>
                                 <div class="option">
                                     <div class="icon"><i class="fe fe-map-pin"></i></div>
                                     <div class="mb-2 flex last:mb-0">
-                                        <p>Tầng 5 &amp; 6, Tòa nhà Queen , Số 49 Điện Biên Phủ, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh</p>
+                                        <p>{{company.address}}</p>
                                     </div>
                                 </div>
 
                                 <div class="option">
                                     <div class="icon"><i class="fe fe-dollar-sign"></i></div>
                                     <div class="mb-2 flex last:mb-0">
-                                        <p>2000$</p>
+                                        <p>{{job.salary_range}}$</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,15 +146,6 @@
                         </div>
 
                         <div class="item">
-                            <p class="item-title">Các công nghệ sử dụng</p>
-                            <div class="item-body">
-                               <span class="badge">JavaScript</span>
-                               <span class="badge">English</span>
-                               <span class="badge">Java Core</span>
-                            </div>
-                        </div>
-
-                        <div class="item">
                             <p class="item-title">Quy trình phỏng vấn</p>
                             <div class="item-body">
                                 <ul>
@@ -169,7 +161,5 @@
             </div>
         </div>
     </section>
-
-    
 </body>
 </html>
