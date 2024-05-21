@@ -17,7 +17,7 @@ def login(request):
                 messages.info(request, 'Invalid username or password')
                 return redirect(reverse('login'))
 
-        return render(request, 'admin/login.html', {})
+    return render(request, 'app/login.html', {})
 
 def logout(request):
     auth_logout(request)

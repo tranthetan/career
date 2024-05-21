@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RegisterUserForm
+from ..forms import RegisterUserForm
 
 def register(request):
     return render(request, 'app/register.html')
