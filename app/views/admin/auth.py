@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from app.models import User
+from app.models import User, Company
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
@@ -13,8 +14,22 @@ def users(request):
     return render(request, 'admin/users.html')
 
 def company(request):
-    return render(request, 'admin/company.html')
-
+    companies = Company.objects.all()
+    
+    paginator = Paginator(companies, 10)  # Chia dữ liệu thành các trang, mỗi trang có 10 phần tử
+    
+    page = request.GET.get('page')
+    try:
+        companies = paginator.page(page)
+    except PageNotAnInteger:
+        companies = paginator.page(1)
+    except EmptyPage:
+        companies = paginator.page(paginator.num_pages)
+    
+    context = {
+        'companies': companies,
+    }
+    return render(request, 'admin/company.html', context)
 
 def admin_login(request):
     try:
