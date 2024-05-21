@@ -12,6 +12,9 @@ def index(request):
 def users(request):
     return render(request, 'admin/users.html')
 
+def company(request):
+    return render(request, 'admin/company.html')
+
 
 def admin_login(request):
     try:
