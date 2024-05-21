@@ -8,4 +8,4 @@ def show(request, job_id):
         'job': job,
         'company': company
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'app/detail.html', context)
