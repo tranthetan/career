@@ -1,7 +1,7 @@
 {% extends "admin/layout.html" %}
 
 {% block page_title %}
-    Index
+    Users
 {% endblock %}
 
 {% block main_content %}
@@ -18,100 +18,116 @@
 
 <!-- Main content -->
 <section class="content">
+{% csrf_token %}
   <div class="row">
     <div class="col-md-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Users</h3>
+            {% if type == 'is_staff' %}
+                <h3 class="box-title">Human resource</h3>
+            {% else %}
+                <h3 class="box-title">Normal</h3>
+            {% endif %}
         </div>
         <div class="box-body">
           <table class="table table-bordered">
-            <tbody><tr>
-              <th style="width: 10px">#</th>
-              <th>Task</th>
-              <th>Progress</th>
-              <th style="width: 40px">Label</th>
-              <th>Date</th>
-              <th style="width: 150px">Action</th>
-            </tr>
-            <tr>
-              <td>1.</td>
-              <td>Update software</td>
-              <td>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                </div>
-              </td>
-              <td><span class="badge bg-red">55%</span></td>
-              <td>11-7-2014</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>Clean database</td>
-              <td>
-                <div class="progress progress-xs">
-                  <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                </div>
-              </td>
-              <td><span class="badge bg-yellow">70%</span></td>
-              <td>11-7-2014</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>3.</td>
-              <td>Cron job running</td>
-              <td>
-                <div class="progress progress-xs progress-striped active">
-                  <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                </div>
-              </td>
-              <td><span class="badge bg-light-blue">30%</span></td>
-              <td>11-7-2014</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>4.</td>
-              <td>Fix and squish bugs</td>
-              <td>
-                <div class="progress progress-xs progress-striped active">
-                  <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                </div>
-              </td>
-              <td><span class="badge bg-green">90%</span></td>
-              <td>11-7-2014</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
-                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
-          </tbody></table>
+            <tbody>
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th style="width: 150px">Action</th>
+              </tr>
+              {% for user in users %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% if user.is_active %}
+                        <label class="switch">
+                          <input class="toggle-active" data-user-id="{{ user.id }}" data-active="{{ user.is_active }}" type="checkbox" checked>
+                          <span class="slider round"></span>
+                        </label>
+                    {% else %}
+                        <label class="switch">
+                          <input class="toggle-active" data-user-id="{{ user.id }}" data-active="{{ user.is_active }}" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                    {% endif %}
+
+                </td>
+                <td>
+                  <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                  <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
+                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
 
         <div class="box-footer clearfix">
+          <span class="current">
+            Page {{ users.number }} of {{ users.paginator.num_pages }}
+          </span>
           <ul class="pagination pagination-sm no-margin pull-right">
-            <li><a href="#">«</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">»</a></li>
+            {% if users.has_previous %}
+                <li><a href="?page=1">first</a></li>
+                <li><a href="?page={{ users.previous_page_number }}">«</a></li>
+            {% endif %}
+
+            {% for page in pages %}
+                {% if users.number == page %}
+                    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                {% endif %}
+
+            {% endfor %}
+
+            {% if users.has_next %}
+                <li><a href="?page={{ users.next_page_number }}">»</a></li>
+                <li><a href="?page={{ users.paginator.num_pages }}">last</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function() {
+        $('.toggle-active').on('change', function() {
+            let userId = $(this).data('user-id');
+            let pre_active = $(this).data('active');
+            let element = $(this);
+
+             $.ajax({
+                url: '/admin/toggle-user-active/' + userId + '/', // URL to your view
+                method: 'POST',
+                data: {
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() // Send CSRF token
+                },
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Cập nhật thành công.');
+                    } else {
+                        toastr.warning('Cập nhật thất bại.');
+                        element.prop('checked', pre_active == 'True' ? true : false);
+                    }
+                },
+                error: function() {
+                    element.prop('checked', pre_active == 'True' ? true : false);
+                    alert('AJAX request failed.');
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}

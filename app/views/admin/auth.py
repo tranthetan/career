@@ -9,10 +9,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def index(request):
     return render(request, 'admin/index.html')
 
-
-def users(request):
-    return render(request, 'admin/users.html')
-
 def company(request):
     companies = Company.objects.all()
     
