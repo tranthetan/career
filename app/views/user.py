@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from ..forms import RegisterUserForm
+from django.contrib import messages
+from django.contrib.auth import login
 
-def register(request):
+def register_form(request):
     return render(request, 'app/register.html')
 
-def action_register(request):
+def register_view(request):
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
         if form.is_valid():
