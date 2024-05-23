@@ -3,7 +3,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'app/login.html')
 
-def login(request):
+def login_view(request):
     if request.method == "POST":
             username = request.POST.get('username')
             password = request.POST.get('password')
