@@ -9,7 +9,7 @@ def index(request):
         'companies': companies,
         'jobs': jobs
     }
-    return render(request, 'index.html', context)
+    return render(request, 'app/index.html', context)
 
 def search(request):
     query = request.GET.get('param')
@@ -22,4 +22,4 @@ def search(request):
         'jobs': jobs,
         'param': query
     }
-    return render(request, 'filter.html', context)
+    return render(request, 'app/filter.html', context)

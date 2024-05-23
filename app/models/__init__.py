@@ -5,3 +5,4 @@ from .career import Career
 from .job import Job
 from .apply import Apply
 from .hr_company import HRCompany
+from .work_type import WorkType
