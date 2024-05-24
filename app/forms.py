@@ -14,7 +14,7 @@ class RegisterUserForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.is_normal_user = True
-        user.is_superadmin = False
+        user.is_superuser = False
         user.is_staff = False
         if commit:
             user.save()

@@ -4,7 +4,7 @@ from .views import index, auth, user, job
 
 urlpatterns = [
     path('', index.index, name='home'),
-    path('login', auth.index),
+    path('login', auth.index, name='login'),
     path('register', user.register_form),
     path('job/<int:job_id>/detail', job.show),
     path('job/search', index.search, name='job-search'),

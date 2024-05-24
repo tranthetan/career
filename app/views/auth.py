@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from app.models import User
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib import messages
 
 def index(request):
     return render(request, 'app/login.html')
@@ -8,7 +11,6 @@ def login_view(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user_obj = User.objects.filter(username=username)
-
             user_obj = authenticate(username=username, password=password)
             if user_obj:
                 login(request, user_obj)
