@@ -72,6 +72,11 @@
             </ul>
           </li>
           <li>
+            <a href="/admin/request">
+              <i class="fa fa-building"></i> <span>Request</span>
+            </a>
+          </li>
+          <li>
             <a href="/admin/company">
               <i class="fa fa-building"></i> <span>Company</span>
             </a>
@@ -79,10 +84,17 @@
           {% endif %}
           {% if user.is_staff %}
           <li>
-            <a href="#">
-              <i class="fa fa-folder"></i> <span>Apply</span>
+            <a href="/admin/jobs">
+              <i class="fa fa-building"></i> <span>Jobs</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/hr/applies">
+              <i class="fa fa-folder"></i> <span>Applies</span>
               <span class="pull-right-container">
-                <small class="label pull-right bg-green">1</small>
+                <small class="label pull-right bg-green">
+                  1
+                </small>
               </span>
             </a>
           </li>

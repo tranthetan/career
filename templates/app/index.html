@@ -38,8 +38,7 @@
                             <div class="dropdown">
                                 <button class="dropbtn">{{user.username}}</button>
                                 <div class="dropdown-content">
-                                    <a class="dropdown-item" href="#"> Profile </a>  
-                                    <a class="dropdown-item" href="#"> Nhà tuyển dụng </a>  
+                                    <a class="dropdown-item" href="{% url 'user-hr-register' %}"> Nhà tuyển dụng </a>  
                                     <a class="dropdown-item" href="{% url 'user-logout' %}"> Logout </a>  
                                 </div>
                               </div>

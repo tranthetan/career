@@ -2,12 +2,17 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from app.models import User, Company
+from app.models import User, Company, Apply
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
-    return render(request, 'admin/index.html')
+    user = request.user
+    applies_count = Apply.objects.filter(creator_id=user.id, status=1).count()
+    context = {
+        'applies_count': 100 
+    }
+    return render(request, 'admin/index.html', context)
 
 def users(request):
     return render(request, 'admin/users.html')

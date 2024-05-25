@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form</title>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Company Registration</div>
+    <div class="content">
+      <form action="{% url 'hr-register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Company Name</span>
+            <input type="text" name="name" placeholder="Enter your Company Name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" name="address" placeholder="Enter your Company Name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Website</span>
+            <input type="text" name="website" placeholder="Enter your Website" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Logo</span>
+            <input type="file" name="thumbnail" required>
+          </div>
+          <input type="hidden" name="user_id" value="{{user.id}}" required>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

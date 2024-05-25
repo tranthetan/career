@@ -1,6 +1,7 @@
 from django import forms
-from .models import User
+from .models import User, Company, HrRegister
 from django.contrib.auth.forms import UserCreationForm
+from django.conf import settings
 
 class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -13,7 +14,7 @@ class RegisterUserForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.is_normal_user = True
+        user.is_nomal_user = True
         user.is_superuser = False
         user.is_staff = False
         if commit:
