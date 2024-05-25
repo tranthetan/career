@@ -4,10 +4,12 @@ from ..models.job import Job
 
 def index(request):
     companies = Company.objects.all()
-    jobs = Job.objects.all()
+    jobs = Job.objects.filter(status=True).order_by('-created_at')[:15]
+    hot_jobs = Job.objects.filter(status=True).order_by('-count_apply')[:15]
     context = {
         'companies': companies,
-        'jobs': jobs
+        'jobs': jobs,
+        'hot_jobs': hot_jobs
     }
     return render(request, 'app/index.html', context)
 

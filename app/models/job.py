@@ -12,5 +12,8 @@ class Job(models.Model):
     creator = models.ForeignKey(User, related_name='job_creations', on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     career = models.ForeignKey(Career, on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
+    level = models.CharField(max_length=30)
+    count_apply = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
