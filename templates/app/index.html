@@ -35,7 +35,14 @@
                                 <span>098 2693 956</span>
                             </a>
                             {% if user.is_authenticated %}
-                            <a class="button" href="#">{{user.username}}</a>
+                            <div class="dropdown">
+                                <button class="dropbtn">{{user.username}}</button>
+                                <div class="dropdown-content">
+                                    <a class="dropdown-item" href="#"> Profile </a>  
+                                    <a class="dropdown-item" href="#"> Nhà tuyển dụng </a>  
+                                    <a class="dropdown-item" href="{% url 'user-logout' %}"> Logout </a>  
+                                </div>
+                              </div>
                             {% else %}
                                 <a class="button button-rounded" href="/register">Đăng Ký</a>
                                 <a class="button" href="/login">Đăng nhập</a>
