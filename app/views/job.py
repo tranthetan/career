@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ..models.job import Job, Apply
+from ..models import Job, Apply
 
 def show(request, job_id):
     job = Job.objects.get(id = job_id)
