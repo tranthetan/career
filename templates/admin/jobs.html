@@ -38,13 +38,14 @@
               </tr>
               {% for job in jobs %}
               <tr>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ job.title }}</td>
                 <td>{{ job.company.name }}</td>
                 <td>{{ job.career.name }}</td>
                 <td>{{ job.created_at }}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i>Update</button>
-                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                  <a href="/admin/jobs/edit/{{ job.id }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
               {% endfor %}
