@@ -1,14 +1,108 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/feather.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'feather/feather.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/h-detail.css' %}" rel="stylesheet" type="text/css">
+    <style>
+        .overlay-bg {
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .overlay-bg.show {
+            display: unset;
+            visibility: visible;
+            opacity: 1;
+            transition: 0.3s ease;
+        }
+
+        .popup-form {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background: #f6f6f6;
+            width: 500px;
+            padding: 24px;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            transition: 0.3s all;
+        }
+
+        @media screen and (max-width: 559px) {
+            .popup-form {
+                width: 350px;
+            }
+        }
+
+        @media screen and (max-width: 359px) {
+            .popup-form {
+                width: 300px;
+            }
+        }
+
+        .popup-form.show {
+            visibility: visible;
+            opacity: 1;
+            transition: 0.3s all;
+        }
+
+        .popup-form .icon-close {
+            cursor: pointer;
+        }
+
+        .pform {
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: -moz-fit-content;
+            height: fit-content;
+            width: calc(100% - 32px);
+        }
+
+        .pform .pform-title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .pform .pform-input .input,
+        .pform .pform-input input {
+            padding: 8px 16px;
+            border: 1px solid #DCDCDC;
+            background: #f6f6f6;
+            width: 100%;
+        }
+
+        .pform .pform-button {
+            padding: 8px;
+            background: #DD3F24;
+            color: #f6f6f6;
+        }
+        .heighttext{
+            display:inline-block;
+            padding:15px 10px;
+            line-height:200%;
+        }
+    </style>
 </head>
+
 <body>
     <header class="header">
         <div class="t-container">
@@ -30,7 +124,7 @@
                     <div class="card-body">
                         <div class="flex">
                             <div class="img">
-                                <img src="{{company.thumbnail}}" alt="">
+                                <img src="{{company.thumbnail}}" alt="{{company.thumbnail}}">
                             </div>
                             <div class="info">
                                 <h1 class="title">{{job.title}}</h1>
@@ -45,7 +139,7 @@
                                 <div class="option">
                                     <div class="icon"><i class="fe fe-dollar-sign"></i></div>
                                     <div class="mb-2 flex last:mb-0">
-                                        <p>{{job.salary_range}}$</p>
+                                        <p>{{job.salary_range}} VND</p>
                                     </div>
                                 </div>
                             </div>
@@ -56,92 +150,46 @@
                 <div class="content-detail card">
                     <h2 class="card-title">Mô tả công việc</h2>
                     <div class="card-body">
-                        <div class="item border-bottom">
-                            <p class="item-title">YOUR BRILLIANT FUTURE IN TECH IS NOW</p>
-                            <div class="item-body">
-                                <ul>
-                                    <li>Welcome to the world of Zoi. We are those who build the digital evolution of our enterprise customers, closing the gap between enterprise IT and new technologies. Zoi strives to bring the cloud to the Retail and Manufacturing industries with innovative solutions that deliver real value.</li>
-                                    <li>We are expanding our European teams in Stuttgart, Berlin, Lisbon, Barcelona and Bucharest. We are also looking for support at our international locations in Mexico City. Just choose your favorite Zoi city! Travel between our locations is possible.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="item border-bottom">
-                            <p class="item-title">Trách nhiệm công việc</p>
-                            <div class="item-body">
-                                <ul>
-                                    <li>You'll collaborate with a diverse and talented interdisciplinary team to plan, implement and support Google Workspace rollouts all over the world</li>
-                                    <li>Your focus will be on ensuring the long-term success of these projects by migrating applications to Google Workspace</li>
-                                    <li>Your daily work will be understanding customer’s applications, which are based on their old system and you will be in charge of transferring these to Google Workspace</li>
-                                    <li>You will be working in an agile environment</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="item border-bottom">
-                            <p class="item-title">Kỹ năng & Chuyên môn</p>
-                            <div class="item-body">
-                                <ul>
-                                    <li>We are seeking candidates with a minimum of 1 year of practical experience, who are passionate about Google Workspace and eager to further develop their expertise in this domain.</li>
-                                    <li>You have experience as a Developer in the following languages (JavaScript, Python..) or equivalent experience.</li>
-                                    <li>Experience in working with APIs and is able to apply best practices to design and implement APIs.</li>
-                                    <li>You have significant expertise in one of the following languages: AppScript and JavaScript. Core is what you’ve built up in the past years.</li>
-                                    <li>You're familiar with the Google Workspace Ecosystem. Experience in working with Google Cloud APIs is a big plus</li>
-                                    <li>Experience in Frontend Development (ReactJS, NextJS...) is a plus, although not mandatory.</li>
-                                </ul>
-                                <p>Do you like to be surrounded by brilliant minds? Awesome. At Zoi, you become part of our community of tech enthusiasts and develop your full potential. Create fresh ideas and shape the digital transformation of our enterprise customers sustainably.</p>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <p class="item-title">Phúc lợi dành cho bạn</p>
-                            <div class="item-body">
-                                <ul>
-                                    <li>GOOD WORK SHOULD BE REWARDED - which is why we offer various bonus models at our company</li>
-                                    <li>TIME IS WISDOM - 20 % of your working time is available for experimenting and education</li>
-                                    <li>BE FREE - Hybrid working time</li>
-                                    <li>DEVELOP YOURSELF - with our individual certification and training plan</li>
-                                    <li>SKILL YOURSELF UP - Zoi can only be as good as you are. That’s why we value constant training and development</li>
-                                    <li>REFUEL - at our regular free Friday lunch</li>
-                                </ul>
-                            </div>
-                        </div>
-
+                        {{job.description}}
                     </div>
                 </div>
             </div>
 
             <div class="right-side">
-                <button class="btn-apply">Ứng tuyển ngay</button>
-
+                {% if user.is_authenticated %}
+                <button onclick="popupFormShow()" class="btn-apply">Ứng tuyển ngay</button>
+                {% else %}
+                <button onclick="openLogin()" class="btn-apply">Đăng nhập để ứng tuyển</button>
+                {% endif %}
                 <div class="card">
                     <h2 class="card-title">Thông tin chung</h2>
                     <div class="card-body">
                         <div class="item">
                             <p class="item-title">Năm kinh nghiệm tối thiểu</p>
                             <div class="item-body">
-                               <p>Từ 1 năm</p>
+                                {% if job.level == "intern" %}
+                                <p>Không yêu cầu kinh nghiệm</p>
+                                {% elif job.level == "junior" %}
+                                <p>Từ 1 - 2 năm</p>
+                                {% elif job.level == "middle" %}
+                                <p>Từ 2 -4 năm</p>
+                                {% else %}
+                                <p>Từ 5 năm trở lên</p>
+                                {% endif %}
                             </div>
                         </div>
 
                         <div class="item">
                             <p class="item-title">Cấp bậc</p>
                             <div class="item-body">
-                               <p>Junior, Middle, Senior</p>
+                                <p>{{job.level}}</p>
                             </div>
                         </div>
 
                         <div class="item">
                             <p class="item-title">Loại hình</p>
                             <div class="item-body">
-                               <p>Hybrid</p>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <p class="item-title">Loại hợp đồng</p>
-                            <div class="item-body">
-                               <p>Fulltime</p>
+                                <p>{{job.work_type.name}}</p>
                             </div>
                         </div>
 
@@ -161,5 +209,74 @@
             </div>
         </div>
     </section>
+    <div id="popupForm" class="popup-form">
+        <div onclick="closeMenu()" class="icon-close text-end mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <path d="M18.7744 6.80957L6.77441 18.8096" stroke="black" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M6.77441 6.80957L18.7744 18.8096" stroke="black" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="pform">
+            <div class="pform-title">
+                Ứng tuyển
+            </div>
+            <form action="{% url 'job-apply' %}" method="post">
+                <div class="pform-input">
+                    <div class="input-box input-full">
+                        <span class="details">Cover letter</span>
+                        <input class="heighttext" type="text" name="cover_letter" id="cover_letter" required>
+                    </div>
+                    <div class="input-box input-full">
+                        <span class="details">Resume</span>
+                        <input type="file" name="resume_path" id="resume_path" required>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="pform-button">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="overlayBG" class="overlay-bg"></div>
 </body>
+
 </html>
+<script>
+    // POPUP FORM
+    let isForm = false;
+    let popupForm = document.getElementById('popupForm');
+    let overlayBG = document.getElementById('overlayBG'); // get element bg dark
+
+    function popupFormShow() {
+        if (!isForm) {
+            document.body.style.overflowY = 'hidden';
+            popupForm.classList.add("show");
+            overlayBG.classList.add("show");
+            isForm = !isForm;
+        }
+        else {
+            document.body.style.overflowY = 'unset';
+            popupForm.classList.remove("show");
+            overlayBG.classList.remove("show");
+            isForm = !isForm;
+        }
+    }
+
+    function closeMenu() {
+        document.body.style.overflowY = 'unset';
+
+        // Close Menu Recruitment
+        if (document.getElementsByClassName('popup-form show').length > 0) {
+            document.getElementById('popupForm').classList.remove('show');
+            isForm = !isForm;
+            overlayBG.classList.remove("show");
+        }
+    }
+
+    function openLogin()
+    {
+        window.location.href = "/login";
+    }
+</script>
