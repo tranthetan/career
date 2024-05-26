@@ -7,7 +7,7 @@ from .work_type import WorkType
 class Job(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    salary_range = models.CharField(max_length=255)
+    salary_range = models.CharField(max_length=255, null=True, blank=True)
     work_type = models.ForeignKey(WorkType, on_delete=models.CASCADE)
     creator = models.ForeignKey(User, related_name='job_creations', on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)

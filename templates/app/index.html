@@ -101,70 +101,20 @@
                 <div class="content">
                     <div class="swiper swiperJob">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-company">Eduvator</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-link">Xem chi tiết</div>
+                            {% for job in jobs %}
+                                <div class="swiper-slide">
+                                    <a href="job/{{job.id}}/detail">
+                                        <div class="comment-box">
+                                            <div class="comment-img">
+                                                <img class="comment-img__circle" src="{{job.company.thumbnail}}" alt="Customer 1">
+                                            </div>
+                                            <div class="job-company">{{job.company.name}}</div>
+                                            <div class="job-title">{{job.title}}</div>
+                                            <div class="job-link">Xem chi tiết</div>
+                                        </div>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-company">Eduvator</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-link">Xem chi tiết</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-company">ZOI.TECH SGN</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-title">JIRA & CONFLUENCE ADMINISTRATOR</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-link">Xem chi tiết</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-link">Xem chi tiết</div>
-                                    </a>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
@@ -179,76 +129,24 @@
                 <div class="content">
                     <div class="swiper swiperCompany">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/mobifone.png" alt="Customer 1">
+                            {% for job in hot_jobs %}
+                                <a href="job/{{job.id}}/detail">
+                                    <div class="swiper-slide">
+                                        <div class="comment-box">
+                                            <div class="comment-img">
+                                                <img class="comment-img__circle" src="{{job.company.thumbnail}}" alt="Customer 1">
+                                            </div>
+                                            <div class="job-title">{{job.title}}</div>
+                                            <div class="job-company">{{job.company.name}}</div>
+                                            {% if job.salary_range %}
+                                                <div class="color-primary">{{job.salary_range}}</div>
+                                            {% else %}
+                                                <div class="color-primary">Thương lượng</div>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                    <a href="#">
-                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-company">Eduvator</div>
-                                    </a>
-                                    <div class="color-primary">Thương lượng</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-title">Chuyên viên hỗ trợ hạ tầng Cloud</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-company">Eduvator</div>
-                                    </a>
-                                    <div class="color-primary">15.000.000 - 22.000.000 VNĐ</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r3.png" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-title">JIRA & CONFLUENCE ADMINISTRATOR</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-company">ZOI.TECH SGN</div>
-                                    </a>
-                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
-                                    </a>
-                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="comment-box">
-                                    <div class="comment-img">
-                                        <img class="comment-img__circle" src="./src/images/r2.jpg" alt="Customer 1">
-                                    </div>
-                                    <a href="#">
-                                        <div class="job-title">Salesforce Marketing Cloud Administrator</div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="job-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ CÔNG NGHỆ GTSC VIỆT NAM</div>
-                                    </a>
-                                    <div class="color-primary">15.000.000 - 20.000.000 VNĐ</div>
-                                </div>
-                            </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
