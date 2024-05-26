@@ -36,6 +36,7 @@
                 <th style="width: 10px">#</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Date Join</th>
                 <th>Active</th>
                 <th style="width: 150px">Action</th>
               </tr>
@@ -44,6 +45,7 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.date_joined }}</td>
                 <td>
                     {% if user.is_active %}
                         <label class="switch">
@@ -59,9 +61,9 @@
 
                 </td>
                 <td>
-                  <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                  <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
-                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  <a href="#" class="btn btn-sm btn-primary disabled"><i class="fa fa-edit"></i></a>
+                  <button type="button" class="btn btn-sm btn-info disabled"><i class="fa fa-eye"></i></button>
+                  <button type="button" class="btn btn-sm btn-danger disabled"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
               {% endfor %}
