@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from .views.admin import auth
-from .views.admin import user, job
+from .views.admin import user, job, request
 
 urlpatterns = [
     path('', auth.index, name='admin-index'),
@@ -13,4 +13,6 @@ urlpatterns = [
     path('company/', auth.company, name='admin-company'),
     path('jobs/', job.get_jobs, name='admin-jobs'),
     path('hr/applies', job.get_applies, name='applies'),
+    path('requests', request.requests, name='requests'),
+    path('request/<int:request_id>/approve-or-reject', request.action_approve_or_reject, name='approve-or-reject'),
 ]

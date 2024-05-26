@@ -8,9 +8,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     user = request.user
-    applies_count = Apply.objects.filter(creator_id=user.id, status=1).count()
+    applies_count = Apply.objects.filter(user_id=user.id, status=1).count()
     context = {
-        'applies_count': 100 
+        'applies_count': applies_count 
     }
     return render(request, 'admin/index.html', context)
 
