@@ -38,6 +38,7 @@
               </tr>
               {% for request in requests %}
               <tr>
+                <td>{{ loop.index0 }}</td>
                 <td>{{ request.created_at }}</td>
                 <td>{{ request.user.username }}</td>
                 <td>{{ request.user.email }}</td>

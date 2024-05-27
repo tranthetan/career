@@ -54,7 +54,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="/admin/users">
+          <a href="/admin">
             <i class="fa fa-user"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -81,8 +81,7 @@
               <i class="fa fa-building"></i> <span>Company</span>
             </a>
           </li>
-          {% endif %}
-          {% if user.is_staff %}
+          {% else %}
           <li>
             <a href="/admin/jobs">
               <i class="fa fa-building"></i> <span>Jobs</span>

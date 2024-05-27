@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def requests(request):
     requests = HrRegister.objects.all()
 
-    paginator = Paginator(jobs, 10)
+    paginator = Paginator(requests, 10)
     page = request.GET.get('page')
     try:
         requests = paginator.page(page)
@@ -19,7 +19,7 @@ def requests(request):
     context = {
         'type': 'is_normal_user',
         'requests': requests,
-        'pages': range(1, jobs.paginator.num_pages + 1)
+        'pages': range(1, requests.paginator.num_pages + 1)
     }
     return render(request, 'admin/requests.html', context)
 
