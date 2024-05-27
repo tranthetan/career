@@ -222,7 +222,7 @@
             <div class="pform-title">
                 Ứng tuyển
             </div>
-            <form action="/job/{{job.id}}/apply" method="post">
+            <form action="/job/{{job.id}}/apply" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="pform-input">
                     <div class="input-box input-full">
