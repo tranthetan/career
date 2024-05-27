@@ -1,0 +1,101 @@
+{% extends "admin/layout.html" %}
+
+{% block page_title %}
+    Insert Job
+{% endblock %}
+
+{% block main_content %}
+<section class="content-header">
+  <h1>
+    Jobs
+    <small>Insert</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/admin/jobs"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="/admin/jobs">Jobs</a></li>
+    <li class="active">Insert</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+
+    <div class="col-md-12">
+      {% if status == 'success' %}
+        <div class="alert alert-success alert-dismissible">
+            {{ message }}
+        </div>
+      {% endif %}
+
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Insert</h3>
+        </div>
+
+        <form role="form" method="POST" action="/admin/jobs/insert/">
+          {% csrf_token %}
+          <div class="box-body">
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" name="title" class="form-control" placeholder="Enter a title" maxlength="255" required>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea id="description" name="description" rows="10" cols="80"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Salary Range</label>
+              <input type="text" name="salary_range" class="form-control" placeholder="Enter a salary range" maxlength="255" required>
+            </div>
+            <div class="form-group">
+              <label>Level</label>
+              <input type="text" name="level" class="form-control" placeholder="Enter a level" maxlength="255" required>
+            </div>
+            <label class="switch">
+              <input class="toggle-active" name="status" type="checkbox">
+              <span class="slider round"></span>
+            </label> <span>Status</span>
+            <div class="form-group">
+              <label>Career</label>
+              <select class="form-control" name="career">
+                  {% for career in careers %}
+                      <option value="{{ career.id }}">{{ career.name }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <select class="form-control" name="company">
+                  {% for company in companies %}
+                      <option value="{{ company.id }}">{{ company.name }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Work Type</label>
+              <select class="form-control" name="work_type">
+                  {% for type in work_types %}
+                      <option value="{{ type.id }}">{{ type.name }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+    <script>
+      $(function () {
+        CKEDITOR.replace('description')
+      });
+    </script>
+{% endblock %}
