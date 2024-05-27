@@ -222,7 +222,8 @@
             <div class="pform-title">
                 Ứng tuyển
             </div>
-            <form action="{% url 'job-apply' %}" method="post">
+            <form action="/job/{{job.id}}/apply" method="post">
+                {% csrf_token %}
                 <div class="pform-input">
                     <div class="input-box input-full">
                         <span class="details">Cover letter</span>
@@ -230,7 +231,7 @@
                     </div>
                     <div class="input-box input-full">
                         <span class="details">Resume</span>
-                        <input type="file" name="resume_path" id="resume_path" required>
+                        <input type="file" name="resume" required>
                     </div>
                 </div>
                 <div>
