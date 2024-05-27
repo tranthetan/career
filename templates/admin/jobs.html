@@ -7,7 +7,7 @@
 {% block main_content %}
 <section class="content-header">
   <h1>
-    Users
+    Jobs
     <small>List</small>
   </h1>
   <ol class="breadcrumb">
@@ -21,7 +21,8 @@
 {% csrf_token %}
   <div class="row">
     <div class="col-md-12">
-      <div class="box">
+    <a type="button" class="btn btn-sm btn-primary" href="{% url 'admin-insert-job' %}"><i class="fa fa-plus"></i> Thêm mới</a>
+      <div class="box" style="margin-top: 15px">
         <div class="box-header with-border">
             <h3 class="box-title">Jobs</h3>
         </div>
@@ -37,7 +38,7 @@
                 <th style="width: 150px">Action</th>
               </tr>
               {% for job in jobs %}
-              <tr>
+              <tr id="tr-{{ job.id }}">
                 <td>{{ forloop.counter }}</td>
                 <td>{{ job.title }}</td>
                 <td>{{ job.company.name }}</td>
@@ -45,7 +46,25 @@
                 <td>{{ job.created_at }}</td>
                 <td>
                   <a href="/admin/jobs/edit/{{ job.id }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                  <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete-{{ job.id }}"><i class="fa fa-trash"></i></button>
+                  <div class="modal fade" id="modal-delete-{{ job.id }}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">{{ job.title }}</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure delete this job?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-default" data-dismiss="modal">No</a>
+                          <a type="button" class="btn btn-primary btn-agree-delete" job-id="{{ job.id }}">Yes</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </tr>
               {% endfor %}
@@ -85,4 +104,32 @@
 {% endblock %}
 
 {% block script %}
+  <script>
+    $(document).ready(function() {
+      $(".btn-agree-delete").click(function() {
+        $jobId = $(this).attr('job-id');
+        $.ajax({
+          url: '/admin/jobs/delete/' + $jobId + '/', // URL to your view
+          method: 'POST',
+          data: {
+              csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() // Send CSRF token
+          },
+          success: function(response) {
+              if (response.success) {
+                  toastr.success('Xóa thành công.');
+                  $('.modal').modal('hide');
+                  $('#tr-' + $jobId).remove();
+                  $('#modal-delete-' + $jobId).modal('hide');
+                  $('.modal-backdrop').remove();
+              } else {
+                  toastr.warning('Xóa thất bại.');
+              }
+          },
+          error: function() {
+              alert('AJAX request failed.');
+          }
+        });
+      });
+    });
+  </script>
 {% endblock %}

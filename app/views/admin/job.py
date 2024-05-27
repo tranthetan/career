@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from app.models import Job, Apply, Company, Career, WorkType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django import forms
+from django.db import models
 
 
 def get_jobs(request):
@@ -77,3 +78,46 @@ def edit_job(request, job_id):
     except Exception as e:
         print(e)
 
+
+def insert_job(request):
+    try:
+        context = {}
+        if request.method == 'POST':
+            new_job = Job(
+                title=request.POST.get('title', ''),
+                description=request.POST.get('description', ''),
+                salary_range=request.POST.get('salary_range', ''),
+                level=request.POST.get('level'),
+                status=1 if request.POST.get('status') == 'on' else 0,
+                career_id=request.POST.get('career'),
+                company_id=request.POST.get('company'),
+                work_type_id=request.POST.get('work_type'),
+                creator_id=request.user.id,
+                count_apply=0
+            )
+            new_job.save()
+            context['status'] = 'success'
+            context['message'] = 'Thêm mới thành công.'
+
+        companies = Company.objects.all()
+        careers = Career.objects.all()
+        work_types = WorkType.objects.all()
+        context['companies'] = companies
+        context['careers'] = careers
+        context['work_types'] = work_types
+
+        return render(request, 'admin/job-insert.html', context)
+    except Exception as e:
+        print(e)
+
+
+def delete_job(request, job_id):
+    try:
+        if request.method == 'POST':
+            job = get_object_or_404(Job, pk=job_id)
+            job.delete()
+            return JsonResponse({'success': True})
+        return JsonResponse({'success': False})
+    except Exception as e:
+        print(e)
+        return JsonResponse({'success': False})
