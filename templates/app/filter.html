@@ -102,66 +102,23 @@
                         <div class="job-box">
                             <div class="box-main-title">Việc làm nổi bật</div>
                             <ul>
+                                {% for job in hot_jobs %}
                                 <li>
                                     <div class="box-item">
                                         <div class="box-it">
                                             <div class="box-img">
                                                 <a href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
+                                                    <img src="{{job.company.thumbnail}}" alt="Comany">
                                                 </a>
                                             </div>
                                             <div class="flex-1">
-                                                <h3 class="claim-1 box-title">Kỹ sư truyền dẫn (Office)</h3>
-                                                <div class="claim-1 box-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI ICT</div>
+                                                <h3 class="claim-1 box-title">{{job.title}}</h3>
+                                                <div class="claim-1 box-company">{{job.company.name}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="box-item">
-                                        <div class="box-it">
-                                            <div class="box-img">
-                                                <a href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="claim-1 box-title">Kỹ sư truyền dẫn (Office)</h3>
-                                                <div class="claim-1 box-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI ICT</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="box-item">
-                                        <div class="box-it">
-                                            <div class="box-img">
-                                                <a href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="claim-1 box-title">Kỹ sư truyền dẫn (Office)</h3>
-                                                <div class="claim-1 box-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI ICT</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="box-item">
-                                        <div class="box-it">
-                                            <div class="box-img">
-                                                <a href="#">
-                                                    <img src="./src/images/r3.png" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="claim-1 box-title">Kỹ sư truyền dẫn (Office)</h3>
-                                                <div class="claim-1 box-company">CÔNG TY CỔ PHẦN THƯƠNG MẠI ICT</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

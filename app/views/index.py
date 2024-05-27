@@ -16,12 +16,13 @@ def index(request):
 def search(request):
     query = request.GET.get('param')
     jobs = Job.objects.all()
-    
+    hot_jobs = Job.objects.filter(status=1).order_by('-count_apply')[:15]
     if query:
         jobs = jobs.filter(title__icontains=query)
     
     context = {
         'jobs': jobs,
+        'hot_jobs': hot_jobs,
         'param': query
     }
     return render(request, 'app/filter.html', context)
