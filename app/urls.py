@@ -6,7 +6,7 @@ urlpatterns = [
     path('', index.index, name='home'),
     path('login', auth.index, name='login'),
     path('register', user.register_form),
-    path('job/<int:job_id>/detail', job.show, name="job-detal"),
+    path('job/<int:job_id>/detail', job.show, name="job-detail"),
     path('job/search', index.search, name='job-search'),
     path('user/register', user.register_view, name='user-register'),
     path('job/<int:job_id>/apply', job.apply, name='job-apply'),

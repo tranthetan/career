@@ -74,25 +74,20 @@
                             <ul>
                                 {% for job in jobs %}
                                 <li>
-                                    <div class="job-item">
-                                        <div class="job-it">
-                                            <div>
-                                                <a class="job-img" href="#">
-                                                    <img src="{{job.company.thumbnail}}" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="job-title">
-                                                    <a href="#">{{job.title}}</a>
-                                                </h3>
-                                                <div class="job-title-company">{{job.company.website}}</div>
-                                                <div class="job-salary">{{job.salary_range}}</div>
-                                                <div class="job-address">{{job.company.name}}</div>
-                                                <div class="claim-1 mt-2">Go Lang, Python, Ruby, NodeJS, Java: Must have development experience in at least two of these languages.</div>
-                                                <div class="job-time">{{job.created_at}}</div>
+                                    <a href="/job/{{job.id}}/detail">
+                                        <div class="job-item">
+                                            <div class="job-it">
+                                                <img class="job-img" src="{{job.company.thumbnail}}" alt="Comany">
+                                                <div class="flex-1">
+                                                    <a class="job-title" href="#">{{job.title}}</a>
+                                                    <div class="job-title-company">{{job.company.website}}</div>
+                                                    <div class="job-salary">{{job.salary_range}}</div>
+                                                    <div class="job-address">{{job.company.name}}</div>
+                                                    <div class="job-time">{{job.created_at}}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -104,19 +99,19 @@
                             <ul>
                                 {% for job in hot_jobs %}
                                 <li>
-                                    <div class="box-item">
-                                        <div class="box-it">
-                                            <div class="box-img">
-                                                <a href="#">
+                                    <a href="/job/{{job.id}}/detail">
+                                        <div class="box-item">
+                                            <div class="box-it">
+                                                <div class="box-img">
                                                     <img src="{{job.company.thumbnail}}" alt="Comany">
-                                                </a>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h3 class="claim-1 box-title">{{job.title}}</h3>
-                                                <div class="claim-1 box-company">{{job.company.name}}</div>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h3 class="claim-1 box-title">{{job.title}}</h3>
+                                                    <div class="claim-1 box-company">{{job.company.name}}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </li>
                                 {% endfor %}
                             </ul>

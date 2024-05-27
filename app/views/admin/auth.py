@@ -2,16 +2,55 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from app.models import User, Company, Apply
+from app.models import User, Company, Apply, HrRegister
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
     user = request.user
-    applies_count = Apply.objects.filter(user_id=user.id, status=1).count()
-    context = {
-        'applies_count': applies_count 
-    }
+    context = {}
+
+    if user.is_superuser:
+        context = {
+            'itemBoards': [
+                {
+                    'background': 'bg-aqua',
+                    'count': User.objects.filter(is_superuser=1).count(),
+                    'label': 'User',
+                },
+                {
+                    'background': 'bg-red',
+                    'count': User.objects.filter(is_staff=1).count(),
+                    'label': 'Human resource',
+                },
+                {
+                    'background': 'bg-green',
+                    'count': Company.objects.all().count(),
+                    'label': 'Companies',
+                },
+                {
+                    'background': 'bg-yellow',
+                    'count': HrRegister.objects.all().count(),
+                    'label': 'HR Request',
+                }
+            ]
+        }
+    else:
+        context = {
+            'itemBoards': [
+                {
+                    'background': 'bg-aqua',
+                    'count': Apply.objects.filter(hr_process=user.id).count(),
+                    'label': 'Applies',
+                },
+                {
+                    'background': 'bg-yellow',
+                    'count': Job.objects.filter(creator_id=user.id).count(),
+                    'label': 'Jobs',
+                }
+            ]
+        }
+
     return render(request, 'admin/index.html', context)
 
 def users(request):
