@@ -29,7 +29,7 @@ def action_approve_or_reject(request, request_id):
         try:
             request = HrRegister.objects.get(id=request_id)
 
-            if action == True:
+            if action == 1:
                 HRCompany.objects.create(
                     company_id = request.company_id,
                     user_id = request.user_id

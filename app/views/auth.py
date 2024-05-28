@@ -13,15 +13,16 @@ def login_view(request):
             user_obj = User.objects.filter(username=username)
             user_obj = authenticate(username=username, password=password)
             if user_obj:
+                messages.success(request, 'Bạn đã đăng nhập thành công.')
                 login(request, user_obj)
                 return redirect(reverse('home'))
             else:
-                messages.info(request, 'Invalid username or password')
+                messages.info(request, 'Username hoặc password không đúng')
                 return redirect(reverse('login'))
 
     return render(request, 'app/login.html', {})
 
 def logout_view(request):
     logout(request)
-    messages.info(request, "You have successfully logged out.")
+    messages.info(request, "Bạn đã đăng xuất thành công.")
     return redirect(reverse('home'))
