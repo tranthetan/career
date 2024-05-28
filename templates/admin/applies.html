@@ -30,26 +30,25 @@
             <tbody>
               <tr>
                 <th style="width: 10px">#</th>
-                <th>created_at</th>
                 <th>Title</th>
                 <th>Company</th>
                 <th>Status</th>
+                <th>created_at</th>
                 <th style="width: 150px">Action</th>
               </tr>
               {% for apply in applies %}
               <tr>
-                <td>{{ apply.created_at }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ apply.job.title }}</td>
                 <td>{{ apply.company.name }}</td>
-                <td>
-                    {% if apply.status %}
+                {% if apply.status == 0 %}
                         <td>Đã xem</td>
                     {% else %}
                         <td>Chưa xem</td>
                     {% endif %}
-                </td>
+                <td>{{ apply.created_at }}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i>View</button>
+                  <button type="button" class="btn btn-sm btn-info disabled"><i class="fa fa-eye"></i> View</button>
                 </td>
               </tr>
               {% endfor %}
