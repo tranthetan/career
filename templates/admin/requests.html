@@ -47,7 +47,7 @@
                     <button type="button" class="btn btn-sm btn-info request-btn" data-request-id="{{request.id}}" data-action="1">
                         <i class="fa fa-eye"></i>Approve
                     </button>
-                    <button type="button" class="btn btn-sm btn-danger request-btn" data-request-id="{{request.id}} data-action="0">
+                    <button type="button" class="btn btn-sm btn-danger request-btn" data-request-id="{{request.id}}" data-action="0">
                         <i class="fa fa-eye"></i>Reject
                     </button>
                 </td>
@@ -93,6 +93,7 @@
         $('.request-btn').click(function(){
             var action = $(this).data('action');
             var request_id = $(this).data('request-id');
+            console.log(request_id)
             $.ajax({
                 url: '/admin/request/' + request_id + '/approve-or-reject',
                 type: 'POST',

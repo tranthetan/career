@@ -35,8 +35,18 @@
                                 </span>
                                 <span>098 2693 956</span>
                             </a>
-                            <a class="button button-rounded" href="login.html">Nhà tuyển dụng</a>
-                            <a class="button" href="login.html">Đăng nhập</a>
+                            {% if user.is_authenticated %}
+                            <div class="dropdown">
+                                <button class="dropbtn">{{user.username}}</button>
+                                <div class="dropdown-content">
+                                    <a class="dropdown-item" href="{% url 'user-hr-register' %}"> Nhà tuyển dụng </a>
+                                    <a class="dropdown-item" href="{% url 'user-logout' %}"> Logout </a>
+                                </div>
+                              </div>
+                            {% else %}
+                                <a class="button button-rounded" href="/register">Đăng Ký</a>
+                                <a class="button" href="/login">Đăng nhập</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -53,7 +63,7 @@
                     <form autocomplete="off" method="GET" action="{% url 'job-search' %}">
                         <div class="hero-search">
                             <div class="hero-search__content flex">
-                                <input type="text" value="{{param}}" placeholder="Tìm kiếm theo các kỹ năng, vị trí, công việc, ...">
+                                <input type="text" name="param" value="{{param}}" placeholder="Tìm kiếm theo các kỹ năng, vị trí, công việc, ...">
                                 <button class="button" type="submit">
                                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                     Tìm kiếm
@@ -79,7 +89,7 @@
                                             <div class="job-it">
                                                 <img class="job-img" src="{{job.company.thumbnail}}" alt="Comany">
                                                 <div class="flex-1">
-                                                    <a class="job-title" href="#">{{job.title}}</a>
+                                                    <h5 class="job-title">{{job.title}}</h5>
                                                     <div class="job-title-company">{{job.company.website}}</div>
                                                     <div class="job-salary">{{job.salary_range}}</div>
                                                     <div class="job-address">{{job.company.name}}</div>
@@ -92,6 +102,9 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        {% if not jobs %}
+                            <h2 class="job-main-title" style="text-align:center;color:#DD3F24;margin-top:50px">Không tìm thấy công việc</h2>
+                        {% endif %}
                     </div>
                     <div class="job-right">
                         <div class="job-box">
@@ -125,8 +138,8 @@
         <div class="t-container">
             <div class="footer-content">
                 <div class="ft-w-25 footer-info">
-                    <a href="#"><img src="./src/images/Logo.png" alt="Logo"></a>
-                    <div class="footer-info__desc">Dev Pro là một trang tìm kiếm việc làm nhanh nhất hiện nay</div>
+                    <a href="/"><img width="200px" src="{% static 'images/logo-2.png' %}" alt="Logo"></a>
+                    <div class="footer-info__desc">Top Job là một trang tìm kiếm việc làm nhanh nhất hiện nay</div>
                 </div>
                 <div class="ft-w-25 footer-contact">
                     <h4>LIÊN HỆ</h4>
