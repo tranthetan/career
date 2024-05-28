@@ -41,14 +41,14 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ apply.job.title }}</td>
                 <td>{{ apply.company.name }}</td>
-                {% if apply.status == 0 %}
-                        <td>Đã xem</td>
-                    {% else %}
-                        <td>Chưa xem</td>
-                    {% endif %}
+                {% if apply.status == '1' %}
+                    <td>Đã xem</td>
+                {% else %}
+                    <td>Chưa xem</td>
+                {% endif %}
                 <td>{{ apply.created_at }}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-info disabled"><i class="fa fa-eye"></i> View</button>
+                  <button data-apply-id="{{apply.id}}" class="btn btn-sm btn-info resume-btn"><i class="fa fa-eye"></i> View</button>
                 </td>
               </tr>
               {% endfor %}
@@ -88,4 +88,25 @@
 {% endblock %}
 
 {% block script %}
+  <script>
+    $(document).ready(function() {
+      $('.resume-btn').click(function(){
+          var applyId = $(this).data('apply-id');
+          $.ajax({
+              url: '/admin/resume/' + applyId + '/view',
+              type: 'GET',
+              success: function(response) {
+                  if (response.success) {
+                    window.open(response.resume_path, '_blank');
+                  } else {
+                      alert(response.message);
+                  }
+              },
+              error: function(xhr, status, error) {
+                  console.error('AJAX Error: ' + status + error);
+              }
+          });
+      });
+    });
+  </script>
 {% endblock %}
