@@ -18,4 +18,5 @@ urlpatterns = [
     path('hr/applies', job.get_applies, name='applies'),
     path('requests', request.requests, name='requests'),
     path('request/<int:request_id>/approve-or-reject', request.action_approve_or_reject, name='approve-or-reject'),
+    path('resume/<int:apply_id>/view', job.view_resume, name='resume-view')
 ]

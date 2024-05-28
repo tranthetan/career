@@ -121,3 +121,27 @@ def delete_job(request, job_id):
     except Exception as e:
         print(e)
         return JsonResponse({'success': False})
+
+def view_resume(request, apply_id):
+    try:
+        apply = Apply.objects.get(id=apply_id)
+        apply.status = 1
+        apply.save()
+        
+        response_data = {
+            'success': True,
+            'message': 'Status updated successfully',
+            'resume_path': apply.resume_path,
+        }
+    except Apply.DoesNotExist:
+        response_data = {
+            'success': False,
+            'message': 'Apply object not found',
+        }
+    except Exception as e:
+        response_data = {
+            'success': False,
+            'message': str(e),
+        }
+    
+    return JsonResponse(response_data)
