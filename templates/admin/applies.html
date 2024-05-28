@@ -41,11 +41,11 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ apply.job.title }}</td>
                 <td>{{ apply.company.name }}</td>
-                {% if apply.status == 0 %}
-                        <td>Đã xem</td>
-                    {% else %}
-                        <td>Chưa xem</td>
-                    {% endif %}
+                {% if apply.status == '1' %}
+                    <td>Đã xem</td>
+                {% else %}
+                    <td>Chưa xem</td>
+                {% endif %}
                 <td>{{ apply.created_at }}</td>
                 <td>
                   <button data-apply-id="{{apply.id}}" class="btn btn-sm btn-info resume-btn"><i class="fa fa-eye"></i> View</button>
