@@ -2,10 +2,12 @@ from ..models import Job, Apply
 from django.core.files.storage import default_storage
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
+from django.utils.html import mark_safe
 
 def show(request, job_id):
     job = Job.objects.get(id = job_id)
     company = job.company
+    job.description = mark_safe(job.description)
     context = {
         'job': job,
         'company': company

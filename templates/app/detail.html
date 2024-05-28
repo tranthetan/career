@@ -8,6 +8,7 @@
     <title>Python</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'feather/feather.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/h-detail.css' %}" rel="stylesheet" type="text/css">
     <style>
         .overlay-bg {
@@ -108,8 +109,8 @@
         <div class="t-container">
             <div class="nav-bar">
                 <div class="nav-bar__menu">
-                    <a href="#" class="logo-link">
-                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+                    <a href="/" class="logo-link">
+                        <img class="logo" src="{% static 'images/logo-2.png' %}" alt="Logo">
                     </a>
                 </div>
                 <div class="nav-bar__login"></div>
@@ -139,7 +140,7 @@
                                 <div class="option">
                                     <div class="icon"><i class="fe fe-dollar-sign"></i></div>
                                     <div class="mb-2 flex last:mb-0">
-                                        <p>{{job.salary_range}} VND</p>
+                                        <p>{{job.salary_range}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +151,7 @@
                 <div class="content-detail card">
                     <h2 class="card-title">Mô tả công việc</h2>
                     <div class="card-body">
-                        {{job.description}}
+                        {{ job.description }}
                     </div>
                 </div>
             </div>
@@ -197,9 +198,9 @@
                             <p class="item-title">Quy trình phỏng vấn</p>
                             <div class="item-body">
                                 <ul>
-                                    <li>Vòng 1: Interview with Tech Leads in Vietnam by English</li>
-                                    <li>Vòng 2: Interview with Managers in Germany by English</li>
-                                    <li>Vòng 3: Deal Salary</li>
+                                    <li>Vòng 1: Phỏng vấn Tech Lead bằng tiếng Anh</li>
+                                    <li>Vòng 2: Phỏng vấn các nhà quản lý bằng tiếng Anh</li>
+                                    <li>Vòng 3: Mức lương thỏa thuận</li>
                                 </ul>
                             </div>
                         </div>
