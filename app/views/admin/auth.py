@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from app.models import User, Company, Apply, HrRegister
+from app.models import User, Company, Apply, HrRegister, Job
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 

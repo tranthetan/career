@@ -100,4 +100,14 @@
 
 .flex {
   display: flex;
-}/*# sourceMappingURL=h-detail.css.map */
+}
+
+.content-detail.card p {
+  margin: 15px 0;
+}
+
+.content-detail.card ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+/*# sourceMappingURL=h-detail.css.map */

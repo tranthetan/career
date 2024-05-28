@@ -17,8 +17,8 @@
         <div class="t-container">
             <div class="nav-menu">
                 <div class="nav-bar__menu">
-                    <a href="#" class="logo-link">
-                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+                    <a href="/" class="logo-link">
+                        <img class="logo" src="{% static 'images/logo-2.png' %}" alt="Logo">
                     </a>
                     <ul class="menu-list nav-bar">
                         <li><a href="#">Công ty IT</a></li>
@@ -130,20 +130,18 @@
                     <div class="swiper swiperCompany">
                         <div class="swiper-wrapper">
                             {% for job in hot_jobs %}
-                                <a href="job/{{job.id}}/detail">
-                                    <div class="swiper-slide">
-                                        <div class="comment-box">
-                                            <div class="comment-img">
-                                                <img class="comment-img__circle" src="{{job.company.thumbnail}}" alt="Customer 1">
-                                            </div>
-                                            <div class="job-title">{{job.title}}</div>
-                                            <div class="job-company">{{job.company.name}}</div>
-                                            {% if job.salary_range %}
-                                                <div class="color-primary">{{job.salary_range}}</div>
-                                            {% else %}
-                                                <div class="color-primary">Thương lượng</div>
-                                            {% endif %}
+                                <a class="swiper-slide" href="job/{{job.id}}/detail">
+                                    <div class="comment-box">
+                                        <div class="comment-img">
+                                            <img class="comment-img__circle" src="{{job.company.thumbnail}}" alt="Customer 1">
                                         </div>
+                                        <div class="job-title">{{job.title}}</div>
+                                        <div class="job-company">{{job.company.name}}</div>
+                                        {% if job.salary_range %}
+                                            <div class="color-primary">{{job.salary_range}}</div>
+                                        {% else %}
+                                            <div class="color-primary">Thương lượng</div>
+                                        {% endif %}
                                     </div>
                                 </a>
                             {% endfor %}
@@ -232,7 +230,7 @@
         <div class="t-container">
             <div class="footer-content">
                 <div class="ft-w-25 footer-info">
-                    <a href="#"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
+                    <a href="#"><img width="200px" src="{% static 'images/logo-2.png' %}" alt="Logo"></a>
                     <div class="footer-info__desc">Dev Pro là một trang tìm kiếm việc làm nhanh nhất hiện nay</div>
                 </div>
                 <div class="ft-w-25 footer-contact">
