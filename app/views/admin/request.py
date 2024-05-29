@@ -27,15 +27,16 @@ def action_approve_or_reject(request, request_id):
     if request.method == 'POST':
         action = request.POST.get('action')
         try:
-            request = HrRegister.objects.get(id=request_id)
+            hr_request = HrRegister.objects.get(id=request_id)
 
-            if action == 1:
+            if action == '1':
                 HRCompany.objects.create(
-                    company_id = request.company_id,
-                    user_id = request.user_id
+                    company_id = hr_request.company_id,
+                    hr_id = hr_request.user_id
                 )
+                hr_request.delete()
             else:
-                request.delete()
+                hr_request.delete()
 
             return JsonResponse({'success': True, 'message': 'Request status updated successfully.'})
         except HrRegister.DoesNotExist:
