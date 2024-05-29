@@ -392,6 +392,7 @@
 
 .company {
   position: relative;
+  margin-bottom: 50px;
 }
 .company .swiper-slide {
   background-color: #fff;

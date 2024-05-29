@@ -4,6 +4,7 @@ from app.models import Job, Apply, Company, Career, WorkType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django import forms
 from django.db import models
+from django.contrib import messages
 
 
 def get_jobs(request):
@@ -50,7 +51,6 @@ def get_applies(request):
 
 def edit_job(request, job_id):
     try:
-        context = {}
         if request.method == 'POST':
             job = Job.objects.get(pk=job_id)
             job.title = request.POST.get('title')
@@ -62,17 +62,13 @@ def edit_job(request, job_id):
             job.company_id = request.POST.get('company')
             job.work_type_id = request.POST.get('work_type')
             job.save()
-            context['status'] = 'success'
-            context['message'] = 'Cập nhật thành công.'
+            messages.success(request, 'Cập nhật thành công.')
 
         job = Job.objects.filter(id=job_id).first()
         companies = Company.objects.all()
         careers = Career.objects.all()
         work_types = WorkType.objects.all()
-        context['job'] = job
-        context['companies'] = companies
-        context['careers'] = careers
-        context['work_types'] = work_types
+        context = {'job': job, 'companies': companies, 'careers': careers, 'work_types': work_types}
 
         return render(request, 'admin/job-edit.html', context)
     except Exception as e:
@@ -81,7 +77,6 @@ def edit_job(request, job_id):
 
 def insert_job(request):
     try:
-        context = {}
         if request.method == 'POST':
             new_job = Job(
                 title=request.POST.get('title', ''),
@@ -96,15 +91,12 @@ def insert_job(request):
                 count_apply=0
             )
             new_job.save()
-            context['status'] = 'success'
-            context['message'] = 'Thêm mới thành công.'
+            messages.success(request, 'Thêm mới thành công.')
 
         companies = Company.objects.all()
         careers = Career.objects.all()
         work_types = WorkType.objects.all()
-        context['companies'] = companies
-        context['careers'] = careers
-        context['work_types'] = work_types
+        context = {'companies': companies, 'careers': careers, 'work_types': work_types}
 
         return render(request, 'admin/job-insert.html', context)
     except Exception as e:

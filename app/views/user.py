@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from ..forms import RegisterUserForm
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.core.files.storage import default_storage
 from django.conf import settings
 from ..models import User, Company, HrRegister

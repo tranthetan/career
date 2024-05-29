@@ -22,10 +22,12 @@
   <div class="row">
 
     <div class="col-md-12">
-      {% if status == 'success' %}
-        <div class="alert alert-success alert-dismissible">
-            {{ message }}
-        </div>
+       {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %} alert-dismissible">
+                {{ message }}
+            </div>
+        {% endfor %}
       {% endif %}
 
       <div class="box box-primary">
@@ -60,7 +62,7 @@
                 <input class="toggle-active" name="status" type="checkbox">
                 <span class="slider round"></span>
               {% endif %}
-            </label> <span>Status</span>
+            </label> <span>Active</span>
             <div class="form-group">
               <label>Career</label>
               <select class="form-control" name="career">
