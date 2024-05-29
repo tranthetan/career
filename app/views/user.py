@@ -7,20 +7,6 @@ from django.conf import settings
 from ..models import User, Company, HrRegister
 
 def register_form(request):
-    # if request.method == "POST":
-    #     username = request.POST.get('username')
-    #     password = request.POST.get('password')
-    #     user_obj = User.objects.filter(username=username)
-    #
-    #     User.objects.create(
-    #         hr_process=job.creator_id,
-    #         cover_letter=cover_letter,
-    #         resume_path=default_storage.url(file_name),
-    #         status=0,
-    #         user_id=user.id,
-    #         company_id=job.company_id,
-    #         job_id=job_id
-    #     )
     return render(request, 'app/register.html')
 
 def register_view(request):

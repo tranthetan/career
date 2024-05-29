@@ -22,10 +22,12 @@
   <div class="row">
 
     <div class="col-md-12">
-      {% if status == 'success' %}
-        <div class="alert alert-success alert-dismissible">
-            {{ message }}
-        </div>
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %} alert-dismissible">
+                {{ message }}
+            </div>
+        {% endfor %}
       {% endif %}
 
       <div class="box box-primary">

@@ -41,6 +41,7 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ apply.job.title }}</td>
                 <td>{{ apply.company.name }}</td>
+                <td>{{ apply.user.username }}</td>
                 {% if apply.status == '1' %}
                     <td>Đã xem</td>
                 {% else %}
@@ -49,6 +50,40 @@
                 <td>{{ apply.created_at }}</td>
                 <td>
                   <button data-apply-id="{{apply.id}}" class="btn btn-sm btn-info resume-btn"><i class="fa fa-eye"></i> View</button>
+                  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-detail-{{ apply.id }}">Detail</button>
+                  <div class="modal fade" id="modal-detail-{{ apply.id }}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Thông tin chi tiết</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="box box-widget widget-user-2">
+                            <div class="widget-user-header bg-gray">
+                              <img style="height: 60px; width: auto" src="{{ apply.company.thumbnail }}">
+                              <h3 style="margin-left: 0!important;" class="widget-user-username">{{ apply.company.name }}</h3>
+                              <h5 style="margin-left: 0!important;" class="widget-user-desc">Website: {{ apply.company.website }}</h5>
+                              <h5 style="margin-left: 0!important;" class="widget-user-desc">Địa chỉ: {{ apply.company.address }}</h5>
+                            </div>
+                            <div class="box-footer no-padding">
+                              <ul class="nav nav-stacked">
+                                <li style="padding: 10px 15px">Công việc <span class="pull-right">{{ apply.job.title }}</span></li>
+                                <li style="padding: 10px 15px">Level <span class="pull-right">{{ apply.job.level }}</span></li>
+                                <li style="padding: 10px 15px">Mức lương <span class="pull-right">{{ apply.job.salary_range }}</span></li>
+                                <li style="padding: 10px 15px">Ứng viên <span class="pull-right">{{ apply.user.username }}</span></li>
+                                <li style="padding: 10px 15px">Email <span class="pull-right">{{ apply.user.email }}</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-default" data-dismiss="modal">Đóng</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </tr>
               {% endfor %}
