@@ -1,5 +1,6 @@
 from django.shortcuts import redirect
 from django.urls import resolve
+from django.contrib.auth import logout
 
 
 class AdminAuthenticationMiddleware:
@@ -13,6 +14,10 @@ class AdminAuthenticationMiddleware:
         if request.path.startswith('/admin/') \
                 and not request.user.is_authenticated \
                 and resolve(request.path_info).route != 'admin/login/':
+            return redirect('/admin/login')
+
+        if request.path.startswith('/admin/') and request.user.is_authenticated and request.user.is_nomal_user:
+            logout(request)
             return redirect('/admin/login')
 
         return response
