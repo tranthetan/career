@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
-from app.models import HrRegister, HRCompany
+from app.models import HrRegister, HRCompany, User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -34,6 +34,10 @@ def action_approve_or_reject(request, request_id):
                     company_id = hr_request.company_id,
                     hr_id = hr_request.user_id
                 )
+                user = User.objects.get(pk=hr_request.user_id)
+                user.is_staff = 1
+                user.is_nomal_user = 0
+                user.save()
                 hr_request.delete()
             else:
                 hr_request.delete()
